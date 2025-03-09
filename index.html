@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的照片库 - 个人网站</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>照片库</h1>
+                <p>我的个人照片收藏</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#gallery">照片库</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>欢迎来到我的照片库</h2>
+                <p>在这里展示我的私人照片收藏，并提供照片批量操作功能</p>
+                <a href="#gallery" class="btn">浏览照片</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">照片库</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="搜索照片...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="nature">自然</button>
+                    <button class="filter-btn" data-filter="travel">旅行</button>
+                    <button class="filter-btn" data-filter="food">美食</button>
+                    <button class="filter-btn" data-filter="people">人物</button>
+                </div>
+            </div>
+
+            <div class="batch-operations">
+                <button id="select-all-btn" class="btn">全选</button>
+                <button id="deselect-all-btn" class="btn">取消全选</button>
+                <button id="download-selected-btn" class="btn" disabled>下载选中</button>
+                <button id="delete-selected-btn" class="btn" disabled>删除选中</button>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle">批量编辑 <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" id="rotate-btn">旋转</a>
+                        <a href="#" class="dropdown-item" id="resize-btn">调整大小</a>
+                        <a href="#" class="dropdown-item" id="filter-btn">应用滤镜</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-grid" id="photo-container">
+                <!-- 照片将通过JavaScript动态加载 -->
+            </div>
+
+            <div class="load-more">
+                <button id="load-more-btn" class="btn">加载更多</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我的照片库</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>这是我的个人照片库，在这里我收集了自己喜欢的各种照片。网站提供了照片批量操作功能，让您可以更方便地管理照片。</p>
+                    <p>您可以上传自己的照片，对照片进行编辑、分类和下载。希望您能喜欢这个网站！</p>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-photo-film"></i>
+                        <h3>精美排版</h3>
+                        <p>网站采用响应式设计，在各种设备上都能获得最佳浏览体验</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <h3>互动性强</h3>
+                        <p>提供丰富的交互功能，让您的照片管理更加便捷</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-images"></i>
+                        <h3>批量操作</h3>
+                        <p>支持照片批量选择、编辑、下载等操作</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">发送</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>example@email.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+86 123 4567 8901</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-location-dot"></i>
+                        <p>北京市, 中国</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 照片库. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- 照片预览模态框 -->
+    <div class="modal" id="photo-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-controls">
+                <button id="prev-photo" class="modal-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="download-photo" class="btn"><i class="fas fa-download"></i> 下载</button>
+                <button id="next-photo" class="modal-nav-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
